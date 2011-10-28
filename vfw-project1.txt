@@ -1,0 +1,2 @@
+https://github.com/ChuckSchotborgh/VFW2011.git
+git://github.com/ChuckSchotborgh/VFW2011.git
