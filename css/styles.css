@@ -1,0 +1,108 @@
+body {
+	width: auto;
+	border-top: solid 1px #8e8e8e;
+	background-image: url(../images/bkgrnd.jpg);
+	height: 100%;
+	font-size: 24px;
+	position: relative;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+form {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 1em;
+	}	
+h1{
+	background-image:url(../images/hdr.png);
+	height: 44%;
+	height: auto;
+	}
+h2 {
+	color: #5EDEFF;
+	}
+h3 {
+	font-family: Georgia, "Times New Roman", Times, serif;	
+	color: #5EDEFF;
+	}
+input {	
+	font-family: Georgia, "Times New Roman", Times, serif;	
+	font-size: 1em
+	}
+li {	
+	font-family: Georgia, "Times New Roman", Times, serif;	
+	font-size: 1em;
+	color: #DEDECA;
+	}
+select {	
+	font-family: Georgia, "Times New Roman", Times, serif;	
+	font-size: 1em
+	}
+td, th {	
+	font-family: Georgia, "Times New Roman", Times, serif;	
+	font-size: 1em
+	}
+textarea {
+	font-family: Georgia, "Times New Roman", Times, serif;	
+	font-size: 1em
+	}
+ul {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 1em;
+	list-style-type: none;
+	list-style-position: outside
+	}
+.BulletBackgroundColor {
+	color: #FFFFFF
+	}
+.DataColor {
+	color: #DEDECA
+	}
+.legend {	
+	font-family: Verdana, Georgia, "Times New Roman", Times, serif;	
+	font-size: .75em;	
+	color: #CCCCCC
+	}
+.footer {	
+	font-family: Verdana, Georgia, "Times New Roman", Times, serif;	
+	font-size: .75em;	
+	color: #999999
+	}
+.FormBackgroundColor {
+	color: #000000
+	}
+.span {
+	color: #DEDECA;
+	}
+.LabelColor {
+	color: #CCCCCC
+	}
+.NavigationColor {
+	color: #CCCCCC
+	}
+a:link {
+	color: #0CF;
+	}
+a:visited {
+	color: #CF0;
+	}
+body,td,th {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #666;
+	font-size: 1em;
+	}
+a {
+	font-size: 14px;
+}
+a:hover {
+	color: #FFF;
+}
+a:active {
+	color: #0FF;
+}
+strong {
+	font-family: Georgia, Times New Roman, Times, serif;
+	color: #DEDECA;
+}
+span{
+	font-family: Georgia, Times New Roman, Times, serif;
+	color: #DEDECA;
+}
