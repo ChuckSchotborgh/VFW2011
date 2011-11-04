@@ -16,13 +16,17 @@ h1{
 	height: 44%;
 	height: auto;
 	}
-h2 {
-	color: #5EDEFF;
+h2{
+	font-family: Arial Narrow, Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	color: #DEDECA;
+	position: relative;
 	}
 h3 {
-	font-family: Georgia, "Times New Roman", Times, serif;	
 	color: #5EDEFF;
+	position: relative;
 	}
+
 input {	
 	font-family: Georgia, "Times New Roman", Times, serif;	
 	font-size: 1em
@@ -80,9 +84,11 @@ ul {
 	}
 a:link {
 	color: #0CF;
+	font-size: 1em
 	}
 a:visited {
 	color: #CF0;
+	font-size: 1.1em
 	}
 body,td,th {
 	font-family: Georgia, "Times New Roman", Times, serif;

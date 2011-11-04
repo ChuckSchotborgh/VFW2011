@@ -1,8 +1,8 @@
-/*Activity 1
- Visual frameworks (VFW)
- Mobile Development
- Full Sail University
-ChuckSchotborgh*/
+	/*Activity 2
+	 Chuck Schotborgh Visual Frameworks 11/2011 project 2
+	 Mobile Development
+	 Full Sail University
+	*/
 
 window.addEventListener("DOMContentLoaded", function(){
     //Passing the element values within the addtitem doc
@@ -64,18 +64,18 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
     //Storing Data to local storage finding random ID num and the values 
 	function storeData(){
-	var id        = Math.floor(Math.random()*100000001);
+	var id        		  = Math.floor(Math.random()*100000001);
 	getSelectedRadio();
 	getSelectedRadio();
-	    var item        = {};
-	    item.group         = ["Group:", $('groups').value];
+	    var item          = {};
+	    item.group        = ["Group:", $('groups').value];
 	    item.fname        = ["First Name:", $('fname').value];
 	    item.lname        = ["Last Name:", $('lname').value];
-		item.email 		= ["Email:", $('email').value];
-		item.sex        = ["Sex:", sexValue];
-	    item.favorite   = ["Is a Favorite:", favoriteValue ];	  
-	    item.iq            = ["IQ", $('iq').value];
-	    item.date        = ["Date", $('date').value];
+		item.email 		  = ["Email:", $('email').value];
+		item.sex          = ["Sex:", sexValue];
+	    item.favorite     = ["Is a Favorite:", favoriteValue ];	  
+	    item.iq           = ["IQ", $('iq').value];
+	    item.date         = ["Date", $('date').value];
 	    item.notes        = ["Notes", $('notes').value];
 	    localStorage.setItem(id, JSON.stringify(item));
 	    alert("Contact Saved!");
@@ -144,7 +144,29 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
     
     /*Variable defaults*/
-    var contactGroups = ["--Choose A Group--", "Friends", "Family", "Work"],
+    var contactGroups = ["--Current State of Mind--",
+						 "Exhuasted",
+						 "Suspicious",
+						 "Shocked",
+						 "Overwhelmed",
+						 "Frustrated",
+						 "Sad",
+						 "Hysterical",
+						 "Embarrassed",
+						 "Angry",
+						 "Confused",
+						 "Enraged",
+						 "Ashamed",
+						 "Lonely",
+						 "Frightend",
+						 "Smug",
+						 "Jealous",
+						 "Suprised",
+						 "Anxious",
+						 "Mischievous",
+						 "PistOff",
+						 "Disgusted",
+						 ],
     sexValue,
     favoriteValue = "No"
     ;
