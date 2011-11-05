@@ -68,15 +68,15 @@ window.addEventListener("DOMContentLoaded", function(){
 	getSelectedRadio();
 	getSelectedRadio();
 	    var item          = {};
-	    item.group        = ["Group:", $('groups').value];
+	    item.group        = ["My Emotion:", $('groups').value];
 	    item.fname        = ["First Name:", $('fname').value];
 	    item.lname        = ["Last Name:", $('lname').value];
 		item.email 		  = ["Email:", $('email').value];
-		item.sex          = ["Sex:", sexValue];
-	    item.favorite     = ["Is a Favorite:", favoriteValue ];	  
-	    item.iq           = ["IQ", $('iq').value];
-	    item.date         = ["Date", $('date').value];
-	    item.notes        = ["Notes", $('notes').value];
+		item.sex          = ["Gender Offender:", sexValue];
+	    item.favorite     = ["Posted Online:", favoriteValue ];	  
+	    item.iq           = ["Rage Gauge:", $('iq').value];
+	    item.date         = ["Date:", $('date').value];
+	    item.notes        = ["My Entry:", $('notes').value];
 	    localStorage.setItem(id, JSON.stringify(item));
 	    alert("Contact Saved!");
 	}
