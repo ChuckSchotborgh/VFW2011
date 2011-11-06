@@ -164,7 +164,7 @@ window.addEventListener("DOMContentLoaded", function(){
 						 "Suprised",
 						 "Anxious",
 						 "Mischievous",
-						 "PistOff",
+						 "PissedOff",
 						 "Disgusted",
 						 ],
     sexValue,
