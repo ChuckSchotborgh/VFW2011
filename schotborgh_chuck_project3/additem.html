@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--Chuck Schotborgh Visual Frameworks 11/2011 project 2 -->
+<!-- HTML TAG -->
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="description" content="I Forgive APP (beta)" />   
+        <meta name="keywords" content="HTML5, mobile development, Full Sail University" />
+        <meta name="robots" content="index, follow" />
+        <meta name="robots" content="noindex, nofollow" />
+        <meta name="viewport" content="user-scalable=no, width=device-width" />
+        <title>I Forgive APP (beta)</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />  
+    </head>
+    <body>
+        <header><h1><br><br></h1></header>                                
+        <fieldset id="NavFieldset"> 
+            <nav>
+                <a href="#" id="clear">Clear Stored Data</a>
+                <a href="#" id="displayLink">Display Data</a>
+                <a href="additem.html" id="addNew" style="display:none;">Add New Item</a>
+            </nav>
+        </fieldset>
+        <form action="#" method="post" id="contactForm">
+            <fieldset id="contactFieldset"> 
+              <legend><strong>Login Information</strong></legend>
+              <span>*fields are required.</span>
+                <ul id="errors"></ul>
+                <ul id="questions">
+                    <li id="select"><label for="group">*Add My Emotions:</label><br /></li>
+                    <li><label for="fname">*First Name:</label><input type="text" id="fname" /></li>
+                    <li><label for="lname">*Last Name:</label><input type="text" id="lname" /></li>
+                    <li><label for="email">*Email:</label><input type="email" id="email" /></li>
+                    <li><label for="sex">Gender Offender was: </label>
+                        <ul class="checkbox">
+                            <li><label for="male">Male</label><input type="radio" id="male" value="Male" name="sex" /></li>
+                            <li><label for="female">Female</label><input type="radio" id="female" value="Female" name="sex" /></li>
+                        </ul>
+                    </li>
+                    <li><label for="fav">Post My Beef:</label><input type="checkbox" id="fav" value="Yes" class="checkbox"  /></li>
+                    <li><label for="iq">Gauge My Rage:</label><input type="range" min="160" max="170" id="iq" /></li>
+                    <li><label for="date">Date Added:</label><input type="date" id="date" /></li>
+                    <li><label for="note">Add My Forgiveness Entry:</label><textarea id="notes"></textarea></li>
+                </ul>
+            </fieldset>
+            <input type="submit" value="Begin Forgiveness" id="submit" /><br />
+        </form>
+        <script src="js/main.js" type="text/javascript"></script>
+    </body>
+</html>

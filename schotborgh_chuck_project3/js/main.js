@@ -65,7 +65,6 @@ window.addEventListener("DOMContentLoaded", function(){
     //Storing Data to local storage finding random ID num and the values 
 	function storeData(){
 	var id        		  = Math.floor(Math.random()*100000001);
-	//Gathering all form field values to store in object.
 	getSelectedRadio();
 	getSelectedRadio();
 	    var item          = {};
@@ -78,7 +77,6 @@ window.addEventListener("DOMContentLoaded", function(){
 	    item.iq           = ["Rage Gauge:", $('iq').value];
 	    item.date         = ["Date:", $('date').value];
 	    item.notes        = ["My Entry:", $('notes').value];
-		//Save data into local storage: Using Stringify to covert object to string.
 	    localStorage.setItem(id, JSON.stringify(item));
 	    alert("Contact Saved!");
 	}
@@ -111,11 +109,9 @@ window.addEventListener("DOMContentLoaded", function(){
 			makeSubli.innerHTML = optSubText;
 			makeSubList.appendChild(linksLi);
 		    }
-		    makeItemLinks(localStorage.key(i), linksLi); //create edit and delete button
+		    makeItemLinks(localStorage.key(i), linksLi);
 		}
 	}
-	//Make Item Links
-	// Create Edit delete links for each stored items
 	function makeItemLinks(key, linksLi){
 		var editLink = document.createElement('a');
 		editLink.href = "#";
@@ -124,10 +120,10 @@ window.addEventListener("DOMContentLoaded", function(){
 		//editLink.addEventListener("click", editItem);
 		editLink.innerHTML = editText;
 		linksLi.appendChild(editLink);
-		//add line break
-		var breakTag = document.createElement('br');
+		
+		var breakTag =document.createElement('br');
 		linksLi.appendChild(breakTag);
-		//add delete single Item link
+		
 		var deleteLink = document.createElement('a');
 		deleteLink.href = "#";
 		deleteLink.key = key;
