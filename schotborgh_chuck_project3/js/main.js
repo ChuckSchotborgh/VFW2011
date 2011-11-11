@@ -196,26 +196,26 @@ window.addEventListener("DOMContentLoaded", function(){
 			// Group Validation
 			if(getGroup.value ==="--Current State of Mind--"){
 				var groupError = "Please choose a group.";
-				getGroup.style.border = "1px solid red"
+				getGroup.style.border = "1px solid red";
 				messageAry.push(groupError);
 				}
 			// First Name Validation
 			if(getFname.value === ""){
 				var fNameError = "Please choose a first name."
-				getfName.style.border = "1px solid red"
+				getfName.style.border = "1px solid red";
 				messageAry.push(fNameError);
-				
+			}
 			// Last Name Validation
 			if(getLname.value === ""){
 				var lNameError = "Please choose a first name."
-				getlName.style.border = "1px solid red"
+				getlName.style.border = "1px solid red";
 				messageAry.push(lNameError);
-				
+			}
 			// Email Validation
 			var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\{2,3})+$/;
 			if(!(re.exec(getEmail.value))){
 				var emailError = "Please enter a valid email address.";
-				getEmail.style.border = "1px solid red"
+				getEmail.style.border = "1px solid red";
 				messageAry.push(emailError);
 			}
 			
@@ -253,7 +253,7 @@ window.addEventListener("DOMContentLoaded", function(){
 						 "Anxious",
 						 "Mischievous",
 						 "PissedOff",
-						 "Disgusted",
+						 "Disgusted"
 						 ],
     sexValue,
     favoriteValue = "No",
