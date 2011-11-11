@@ -1,4 +1,4 @@
-	/*Activity 2
+	/*Activity 3
 	 Chuck Schotborgh Visual Frameworks 11/2011 project 2
 	 Mobile Development
 	 Full Sail University
@@ -68,15 +68,15 @@ window.addEventListener("DOMContentLoaded", function(){
 	getSelectedRadio();
 	getSelectedRadio();
 	    var item          = {};
-	    item.group        = ["My Emotion:", $('groups').value];
-	    item.fname        = ["First Name:", $('fname').value];
-	    item.lname        = ["Last Name:", $('lname').value];
-		item.email 		  = ["Email:", $('email').value];
-		item.sex          = ["Gender Offender:", sexValue];
-	    item.favorite     = ["Posted Online:", favoriteValue ];	  
-	    item.iq           = ["Rage Gauge:", $('iq').value];
-	    item.date         = ["Date:", $('date').value];
-	    item.notes        = ["My Entry:", $('notes').value];
+			item.group        = ["My Emotion:", $('groups').value];
+			item.fname        = ["First Name:", $('fname').value];
+			item.lname        = ["Last Name:", $('lname').value];
+			item.email 		  = ["Email:", $('email').value];
+			item.sex          = ["Gender Offender:", sexValue];
+			item.favorite     = ["Posted Online:", favoriteValue ];	  
+			item.iq           = ["Rage Gauge:", $('iq').value];
+			item.date         = ["Date:", $('date').value];
+			item.notes        = ["My Entry:", $('notes').value];
 	    localStorage.setItem(id, JSON.stringify(item));
 	    alert("Contact Saved!");
 	}
@@ -117,7 +117,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		editLink.href = "#";
 		editLink.key = key;
 		var editText = "Edit Contact";
-		//editLink.addEventListener("click", editItem);
+		editLink.addEventListener("click", editItem);
 		editLink.innerHTML = editText;
 		linksLi.appendChild(editLink);
 		
@@ -128,9 +128,49 @@ window.addEventListener("DOMContentLoaded", function(){
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Contact";
-		//deleteLink.addEventListener("click", editItem);
+		deleteLink.addEventListener("click", editItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
+	}
+	
+	function editItem(){
+		//Item local storage item data grab
+		var value = localStorage.getItem(this.key);
+		var item = JSON.parse(value);
+		
+		//Show the form
+		toggleControls("off");
+		
+		//Pop the form fields with current localStorage values
+		$('groups').value = item.group[1];
+		$('fname').value = item.fname[1];
+		$('lname').value = item.lname[1];
+		$('email').value = item.email[1];
+		var radios = document. forms[0].sex;
+		for(var i=0; i<radios.length; i++){
+			if(radios[i].value == "Male" && item.sex[1] =="Male"){
+			radios[i].setAttribute("checked", "checked");
+		}else if(radios[i].value == "Female" && item.sex[1] =="Female"){
+			radios[i].setAttribute("checked", "checked");
+		}
+	}
+	if (item.favorite [1] == "Yes"){
+		$('fav').setAttribute("checked","checked");
+		}	
+		$('iq').value = item.iq[1];
+		$('date').value = item.date[1];
+		$('notes').value = item.notes[1];
+		
+		//remove "save contact" button form init listener
+		save.removeEventListener("click", storeData);
+		
+		//Change Begin button value to Edit Forgiveness
+		$('submit').value = "Edit Forgiveness Plan";
+		var editSubmit =$('submit');
+		
+		//save the key value when we sve the data we edited
+		editSubmit.addEventListener("click", validate);
+		editSubmit.key = this.key;
 	}
 	function clearLocal(){
 		if (localStorage.length === 0){
@@ -141,6 +181,54 @@ window.addEventListener("DOMContentLoaded", function(){
 			window.location.reload();
 			return false;
 		}
+	}
+	
+		function validate(e){
+			//define the elements to check
+			var getGroup = $('groups');
+			var getFname = $('fname');
+			var getLname = $('lname');
+			var getEmail = $('email');
+			
+			// Get Error Messages
+			var messageAry = [];
+			
+			// Group Validation
+			if(getGroup.value ==="--Current State of Mind--"){
+				var groupError = "Please choose a group.";
+				getGroup.style.border = "1px solid red"
+				messageAry.push(groupError);
+				}
+			// First Name Validation
+			if(getFname.value === ""){
+				var fNameError = "Please choose a first name."
+				getfName.style.border = "1px solid red"
+				messageAry.push(fNameError);
+				
+			// Last Name Validation
+			if(getLname.value === ""){
+				var lNameError = "Please choose a first name."
+				getlName.style.border = "1px solid red"
+				messageAry.push(lNameError);
+				
+			// Email Validation
+			var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\{2,3})+$/;
+			if(!(re.exec(getEmail.value))){
+				var emailError = "Please enter a valid email address.";
+				getEmail.style.border = "1px solid red"
+				messageAry.push(emailError);
+			}
+			
+			//if there were errors display screen
+			if (messageAry.length >= 1){
+			for(var i=0, j=messageAry.length; i < j; i++){
+				var txt = document.createElement('li');
+				txt.innerHTML = messageAry[i];
+				errMsg.appendChild (txt);
+			}
+		}
+		e.preventDefault();
+		return false;
 	}
     
     /*Variable defaults*/
@@ -168,7 +256,8 @@ window.addEventListener("DOMContentLoaded", function(){
 						 "Disgusted",
 						 ],
     sexValue,
-    favoriteValue = "No"
+    favoriteValue = "No",
+	errMsg = $('errors')
     ;
     makeCats();
      
@@ -177,5 +266,5 @@ window.addEventListener("DOMContentLoaded", function(){
     var clearLink = $('clear');
     clearLink.addEventListener("click", clearLocal);
     var save = $('submit');
-    save.addEventListener("click", storeData);
+    save.addEventListener("click", validate);
 });
