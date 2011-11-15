@@ -62,24 +62,31 @@ window.addEventListener("DOMContentLoaded", function(){
                 return false;
             }
     }
-    //Storing Data to local storage finding random ID num and the values
-    function storeData(){
-    var id                  = Math.floor(Math.random()*100000001);
-    getSelectedRadio();
-    getSelectedRadio();
-        var item          = {};
-            item.group        = ["My Emotion:", $('groups').value];
-            item.fname        = ["First Name:", $('fname').value];
-            item.lname        = ["Last Name:", $('lname').value];
-            item.email           = ["Email:", $('email').value];
-            item.sex          = ["Gender Offender:", sexValue];
-            item.favorite     = ["Posted Online:", favoriteValue ];      
-            item.iq           = ["Rage Gauge:", $('iq').value];
-            item.date         = ["Date:", $('date').value];
-            item.notes        = ["My Entry:", $('notes').value];
-        localStorage.setItem(id, JSON.stringify(item));
-        alert("Contact Saved!");
-    }
+    
+    function storeData(key){
+        //if no key this,then new item will need a new key
+        if(!key){
+            var id                  = Math.floor(Math.random()*100000001);
+        }else{
+            //Set the id to the existing key, use the passing key form the edit submitevent handler
+            //the key is passed to the validate function, then passed to here into the store Data function.
+            id = key;
+        }
+        getSelectedRadio();
+        getSelectedRadio();
+            var item              = {};
+                item.group        = [" Default Response Choice of Friend:", $('groups').value];
+                item.fname        = ["First Name of Friend:", $('fname').value];
+                item.lname        = ["Last Name of Friend:", $('lname').value];
+                item.email        = ["Email of Friend::", $('email').value];
+                item.sex          = ["Gender Option Style :", sexValue];
+                item.favorite     = ["Posted to Friend Online:", favoriteValue ];      
+                item.iq           = ["Friend Gauge:", $('iq').value];
+                item.date         = ["Date:", $('date').value];
+                item.notes        = ["My Forgiveness Message:", $('notes').value];
+            localStorage.setItem(id, JSON.stringify(item));
+            alert("Contact Saved!");
+        }
     //Getting the Local Storage Data via the Key
     function getData(){
         toggleControls("on");
@@ -182,7 +189,6 @@ window.addEventListener("DOMContentLoaded", function(){
             return false;
         }
     }
-    
         function validate(e){
             //define the elements to check
             var getGroup = $('groups');
@@ -190,6 +196,13 @@ window.addEventListener("DOMContentLoaded", function(){
             var getLname = $('lname');
             var getEmail = $('email');
             
+            //Reset Error Messages
+            errMsg.innerHTML = "";
+                getGroup.style.border = "1px solid Black";
+                getFname.style.border = "1px solid Black";
+                getLname.style.border = "1px solid Black";
+                getEmail.style.border = "1px solid Black";
+                
             // Get Error Messages
             var messageAry = [];
             
@@ -207,12 +220,12 @@ window.addEventListener("DOMContentLoaded", function(){
             }
             // Last Name Validation
             if(getLname.value === ""){
-                var lNameError = "Please choose a first name.";
+                var lNameError = "Please choose a last name.";
                 getLname.style.border = "1px solid red";
                 messageAry.push(lNameError);
             }
             // Email Validation
-            var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\{2,3})+$/;
+            var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
             if(!(re.exec(getEmail.value))){
                 var emailError = "Please enter a valid email address.";
                 getEmail.style.border = "1px solid red";
@@ -226,34 +239,35 @@ window.addEventListener("DOMContentLoaded", function(){
                 txt.innerHTML = messageAry[i];
                 errMsg.appendChild (txt);
             }
+             e.preventDefault();
+            return false;
+            }else{
+            // If all is OK, save our data! Send key value
+            //Remember the passing of this key 
+            storeData(this.key); 
         }
-        e.preventDefault();
-        return false;
     }
-    
     /*Variable defaults*/
-    var contactGroups = ["--Current State of Mind--",
-                         "Exhuasted",
-                         "Suspicious",
-                         "Shocked",
-                         "Overwhelmed",
-                         "Frustrated",
-                         "Sad",
-                         "Hysterical",
-                         "Embarrassed",
-                         "Angry",
-                         "Confused",
-                         "Enraged",
-                         "Ashamed",
-                         "Lonely",
-                         "Frightend",
-                         "Smug",
-                         "Jealous",
-                         "Suprised",
-                         "Anxious",
-                         "Mischievous",
-                         "PissedOff",
-                         "Disgusted",
+    var contactGroups = ["--add Forgiveness Gesture--",
+                         "How can I make it up to you?",
+                         "I need a spanking!",
+                         "You can slap me now!",
+                         "Please accept these flowers!",
+                         "Feed me to the sharks!",
+                         "Go ahead sock me!",
+                         "Holding a I'm sorry sign!",
+                         "I'm sorry sign in a teddy!",
+                         "It was my fault!",
+                         "I'll buy the beer!",
+                         "Let's break bread!",
+                         "I'm such a dufus!",
+                         "I'm such an idiot!",
+                         "I suck! Please forgive me!",
+                         "I'm such a loser!",
+                         "Please forgive me!",
+                         "Can I buy you Lunch!",
+                         "I'm such a Donkey!",
+                         "Just fart in my face Already!"
                          ],
     sexValue,
     favoriteValue = "No",
