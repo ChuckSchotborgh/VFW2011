@@ -1,23 +1,24 @@
 body {
-	width: auto;
-	border-top: solid 1px #8e8e8e;
-	background-image: url(../images/bkgrnd.jpg);
-	height: 100%;
 	font-size: 24px;
-	position: relative;
-	font-family: Georgia, "Times New Roman", Times, serif;
+	font-family: Helvetica, Arial, sans-serif;
+
+}
+button {
+	font-size: 24px;
+	color: #6DDCFF;
+	font-family: Helvetica, Arial, sans-serif;
+
 }
 form {
-	font-family: Georgia, "Times New Roman", Times, serif;
+	font-family: Helvetica, Arial, sans-serif;
 	font-size: 1em;
 	}	
 h1{
 	background-image:url(../images/hdr.png);
-	height: 44%;
 	height: auto;
 	}
 h2{
-	font-family: Arial Narrow, Georgia, "Times New Roman", Times, serif;
+	font-family: Helvetica, Arial, sans-serif;
 	font-size: 16px;
 	color: #DEDECA;
 	position: relative;
@@ -28,87 +29,66 @@ h3 {
 	}
 
 input {	
-	font-family: Georgia, "Times New Roman", Times, serif;	
-	font-size: 1em
+	font-family: Helvetica, Arial, sans-serif ;	
+	font-size: 1em;
+	color: #000000;
 	}
 li {	
-	font-family: Georgia, "Times New Roman", Times, serif;	
+	font-family: Helvetica, Arial, sans-serif;	
 	font-size: 1em;
-	color: #DEDECA;
+	color: #000000;
 	}
 select {	
-	font-family: Georgia, "Times New Roman", Times, serif;	
+	font-family: Helvetica, Arial, sans-serif;	
 	font-size: 1em
 	}
 td, th {	
-	font-family: Georgia, "Times New Roman", Times, serif;	
+	font-family: Helvetica, Arial, sans-serif;	
 	font-size: 1em
 	}
 textarea {
-	font-family: Georgia, "Times New Roman", Times, serif;	
+	font-family: Helvetica, Arial, sans-serif;	
 	font-size: 1em
 	}
 ul {
-	font-family: Georgia, "Times New Roman", Times, serif;
+	font-family: Helvetica, Arial, sans-serif;
 	font-size: 1em;
 	list-style-type: none;
 	list-style-position: outside
-	}
-.BulletBackgroundColor {
-	color: #FFFFFF
 	}
 .DataColor {
 	color: #DEDECA
 	}
 .legend {	
-	font-family: Verdana, Georgia, "Times New Roman", Times, serif;	
+	font-family: "Helvetica, Arial, sans-serif";	
 	font-size: .75em;	
 	color: #CCCCCC
-	}
-.footer {	
-	font-family: Verdana, Georgia, "Times New Roman", Times, serif;	
-	font-size: .75em;	
-	color: #999999
-	}
-.FormBackgroundColor {
-	color: #000000
 	}
 .span {
-	color: #DEDECA;
+	color: #999999;
 	}
 .LabelColor {
-	color: #CCCCCC
+	color: #ffffff
 	}
 .NavigationColor {
-	color: #CCCCCC
+	color: #000000
 	}
 a:link {
-	color: #0CF;
 	font-size: 1em
 	}
 a:visited {
-	color: #CF0;
 	font-size: 1.1em
 	}
 body,td,th {
-	font-family: Georgia, "Times New Roman", Times, serif;
-	color: #666;
+	font-family: "Helvetica, Arial, sans-serif";
 	font-size: 1em;
 	}
 a {
 	font-size: 14px;
 }
-a:hover {
-	color: #FFF;
-}
-a:active {
-	color: #0FF;
-}
+
 strong {
-	font-family: Georgia, Times New Roman, Times, serif;
-	color: #DEDECA;
+	font-family: "Helvetica, Arial, sans-serif";
+	color: #000000;
 }
-span{
-	font-family: Georgia, Times New Roman, Times, serif;
-	color: #DEDECA;
-}
+

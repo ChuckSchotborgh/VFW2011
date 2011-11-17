@@ -75,13 +75,13 @@ window.addEventListener("DOMContentLoaded", function(){
         getSelectedRadio();
         getSelectedRadio();
             var item              = {};
-                item.group        = [" Default Response Choice of Friend:", $('groups').value];
+                item.group        = ["Default Response Choice of Friend:", $('groups').value];
                 item.fname        = ["First Name of Friend:", $('fname').value];
                 item.lname        = ["Last Name of Friend:", $('lname').value];
                 item.email        = ["Email of Friend::", $('email').value];
-                item.sex          = ["Gender Option Style :", sexValue];
+                item.sex          = ["Gesture Presentation Type :", sexValue];
                 item.favorite     = ["Posted to Friend Online:", favoriteValue ];      
-                item.iq           = ["Friend Gauge:", $('iq').value];
+                item.iq           = ["Emotional Tone Meter:", $('iq').value];
                 item.date         = ["Date:", $('date').value];
                 item.notes        = ["My Forgiveness Message:", $('notes').value];
             localStorage.setItem(id, JSON.stringify(item));
@@ -198,16 +198,16 @@ window.addEventListener("DOMContentLoaded", function(){
             
             //Reset Error Messages
             errMsg.innerHTML = "";
-                getGroup.style.border = "1px solid Black";
-                getFname.style.border = "1px solid Black";
-                getLname.style.border = "1px solid Black";
-                getEmail.style.border = "1px solid Black";
+                getGroup.style.border = "1px solid red";
+                getFname.style.border = "1px solid red";
+                getLname.style.border = "1px solid red";
+                getEmail.style.border = "1px solid red";
                 
             // Get Error Messages
             var messageAry = [];
             
             // Group Validation
-            if(getGroup.value ==="--Current State of Mind--"){
+            if(getGroup.value ==="--add Forgiveness Gesture-"){
                 var groupError = "Please choose a group.";
                 getGroup.style.border = "1px solid red";
                 messageAry.push(groupError);
