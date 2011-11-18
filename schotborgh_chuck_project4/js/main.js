@@ -110,6 +110,8 @@ window.addEventListener("DOMContentLoaded", function(){
             var obj = JSON.parse(value);
             var makeSubList = document.createElement('li');
             makeli.appendChild(makeSubList);
+            //Function for getting image
+            getImage(obj.group[1], makeSubList);
             for(var n in obj){
             var makeSubli = document.createElement('li');
             makeSubList.appendChild(makeSubli);
@@ -119,6 +121,14 @@ window.addEventListener("DOMContentLoaded", function(){
             }
             makeItemLinks(localStorage.key(i), linksLi);
         }
+    }
+    function getImage (catName, makeSubList){
+        var imageLi =document.createElement('li');
+        makeSubList.appendChild(imageLi);
+        var newImg = document.createElement('img');
+        var setSrc = newImg.setAttribute("src","images"+ catName +".png");
+        imageLi.appendChild(newImg);
+        
     }
     
     //JSON Object
@@ -133,7 +143,7 @@ window.addEventListener("DOMContentLoaded", function(){
                 "favorite":["Posted to Social Network:", "no"],
                 "iq":["Emotional Gauge:", "75"],
                 "date":["Date Sent:", "2011-11-11"],
-                "notes":["My Posted Message is:", "Will you Forgive me?"]
+                "notes":["My Posted Message is:", "Will you please forgive me!"]
             },
             "contact2": {
                 "group":["Gesture Request Sent:", "Something Funny Crazy"],
@@ -144,7 +154,7 @@ window.addEventListener("DOMContentLoaded", function(){
                 "favorite":["Posted to Social Network:", "no"],
                 "iq":["Emotional Gauge:", "100"],
                 "date":["Date Sent:", "2011-11-11"],
-                "notes":["My Posted Message is:", "Can I make it up to you?"]
+                "notes":["My Posted Message is:", "I'm such a Donkey!"]
             }
         };
         //Store The JSON into local storage
@@ -293,18 +303,9 @@ window.addEventListener("DOMContentLoaded", function(){
     }
     /*Variable defaults*/
     var contactGroups = ["--add Forgiveness Gesture--",
-                         "How can I make it up to you?",
-                         "Please accept these flowers!",
-                         "Feed me to the sharks!",
-                         "Go ahead sock me!",
-                         "It was my fault!",
-                         "I'll buy the beer!",
-                         "I'm such a dufus!",
-                         "I'm such an idiot!",
-                         "I'm such a loser!",
-                         "Please forgive me!",
-                         "Can I buy you Lunch!",
-                         "I'm such a Donkey!",
+                         "Sorry1",
+                         "Sorry2",
+                         "Sorry3"
                          ],
     sexValue,
     favoriteValue = "No",
