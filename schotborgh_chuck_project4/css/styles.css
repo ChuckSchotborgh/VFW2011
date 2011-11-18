@@ -1,8 +1,11 @@
-
-button {
+body {
+	width: auto;
+	border-top: solid 1px #8e8e8e;
+	background-image: url(../images/bkgrnd.jpg);
+	height: 100%;
 	font-size: 24px;
-	color: #6DDCFF;
-	font-family: Helvetica, Arial, sans-serif;
+	position: relative;
+	font-family: Georgia, "Times New Roman", Times, serif;
 
 }
 form {
@@ -61,14 +64,15 @@ ul {
 	color: #CCCCCC
 	}
 .span {
-	color: #999999;
+	color: #000000;
 	}
 a:link {
-	font-size: 1em
+	font-size: 1em;
+	color: #f1f69e;
 	}
 a:visited {
 	font-size: 1.1em;
-	color: #999999;
+	color: #ccff33;
 	}
 body,td,th {
 	font-family: "Helvetica, Arial, sans-serif";
