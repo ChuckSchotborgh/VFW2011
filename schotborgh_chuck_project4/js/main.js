@@ -123,10 +123,10 @@ window.addEventListener("DOMContentLoaded", function(){
         }
     }
     function getImage (catName, makeSubList){
-        var imageLi =document.createElement('li');
+        var imageLi = document.createElement('li');
         makeSubList.appendChild(imageLi);
         var newImg = document.createElement('img');
-        var setSrc = newImg.setAttribute("src","images"+ catName +".png");
+        var setSrc = newImg.setAttribute("src","images/"+ catName +".png");
         imageLi.appendChild(newImg);
         
     }
@@ -135,7 +135,7 @@ window.addEventListener("DOMContentLoaded", function(){
     function autoFillData(){
         var json = {
             "contact1": {
-                "group":["Gesture Request Sent:", "Something Funny Crazy"],
+                "group":["Gesture Request Sent:", "sorry2"],
                 "fname":["Name of FRIEND:", "James"],
                 "lname":["Last Name of FRIEND:", "Matthews"],
                 "email":["Email of FRIEND:", "James@James.com"],
@@ -146,7 +146,7 @@ window.addEventListener("DOMContentLoaded", function(){
                 "notes":["My Posted Message is:", "Will you please forgive me!"]
             },
             "contact2": {
-                "group":["Gesture Request Sent:", "Something Funny Crazy"],
+                "group":["Gesture Request Sent:", "sorry1"],
                 "fname":["Name of FRIEND:", "Josiah"],
                 "lname":["Last Name of FRIEND:", "Schotborgh"],
                 "email":["Email of FRIEND:", "Jo@Jo.com"],
