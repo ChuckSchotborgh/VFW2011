@@ -75,15 +75,15 @@ window.addEventListener("DOMContentLoaded", function(){
         getSelectedRadio();
         getSelectedRadio();
             var item              = {};
-                item.group        = ["Gesture Request Sent:", $('groups').value];
-                item.fname        = ["Name of FRIEND:", $('fname').value];
-                item.lname        = ["Last Name of FRIEND:", $('lname').value];
-                item.email        = ["Email of FRIEND:", $('email').value];
-                item.sex          = ["Gesture Post Type:", sexValue];
-                item.favorite     = ["Posted to Social Network:", favoriteValue ];      
-                item.iq           = ["Emotional Gauge:", $('iq').value];
-                item.date         = ["Date Sent:", $('date').value];
-                item.notes        = ["My Posted Message is:", $('notes').value];
+                item.group        = ["Default Response Choice of Friend:", $('groups').value];
+                item.fname        = ["First Name of Friend:", $('fname').value];
+                item.lname        = ["Last Name of Friend:", $('lname').value];
+                item.email        = ["Email of Friend::", $('email').value];
+                item.sex          = ["Gesture Presentation Type :", sexValue];
+                item.favorite     = ["Posted to Friend Online:", favoriteValue ];      
+                item.iq           = ["Emotional Tone Meter:", $('iq').value];
+                item.date         = ["Date:", $('date').value];
+                item.notes        = ["My Forgiveness Message:", $('notes').value];
             localStorage.setItem(id, JSON.stringify(item));
             alert("Contact Saved!");
         }
@@ -91,8 +91,7 @@ window.addEventListener("DOMContentLoaded", function(){
     function getData(){
         toggleControls("on");
         if(localStorage.length === 0){
-            autoFillData();
-            alert("There is no data in the Local Storage so default data was added.");
+            alert("There is no data in the Local Storage.");
         }
         var makeDiv = document.createElement('div');
         makeDiv.setAttribute("id", "items");
@@ -108,7 +107,7 @@ window.addEventListener("DOMContentLoaded", function(){
             var value = localStorage.getItem(key);
             //Parsing the data to post to the InnerHTML for storage.
             var obj = JSON.parse(value);
-            var makeSubList = document.createElement('li');
+            var makeSubList = document.createElement('ul');
             makeli.appendChild(makeSubList);
             for(var n in obj){
             var makeSubli = document.createElement('li');
@@ -120,40 +119,6 @@ window.addEventListener("DOMContentLoaded", function(){
             makeItemLinks(localStorage.key(i), linksLi);
         }
     }
-    
-    //JSON Object
-    function autoFillData(){
-        var json = {
-            "contact1": {
-                "group":["Gesture Request Sent:", "Something Funny Crazy"],
-                "fname":["Name of FRIEND:", "James"],
-                "lname":["Last Name of FRIEND:", "Matthews"],
-                "email":["Email of FRIEND:", "James@James.com"],
-                "sex":["Gesture Post Type:", "Female"],
-                "favorite":["Posted to Social Network:", "no"],
-                "iq":["Emotional Gauge:", "75"],
-                "date":["Date Sent:", "2011-11-11"],
-                "notes":["My Posted Message is:", "Will you Forgive me?"]
-            },
-            "contact2": {
-                "group":["Gesture Request Sent:", "Something Funny Crazy"],
-                "fname":["Name of FRIEND:", "Josiah"],
-                "lname":["Last Name of FRIEND:", "Schotborgh"],
-                "email":["Email of FRIEND:", "Jo@Jo.com"],
-                "sex":["Gesture Post Type:", "Female"],
-                "favorite":["Posted to Social Network:", "no"],
-                "iq":["Emotional Gauge:", "100"],
-                "date":["Date Sent:", "2011-11-11"],
-                "notes":["My Posted Message is:", "Can I make it up to you?"]
-            }
-        };
-        //Store The JSON into local storage
-        for(var n in json){
-            var id                  = Math.floor(Math.random()*100000001);
-            localStorage.setItem(id, JSON.stringify(json[n]));
-        }
-    }
-
     function makeItemLinks(key, linksLi){
         var editLink = document.createElement('a');
         editLink.href = "#";
@@ -170,7 +135,7 @@ window.addEventListener("DOMContentLoaded", function(){
         deleteLink.href = "#";
         deleteLink.key = key;
         var deleteText = "Delete Contact";
-        deleteLink.addEventListener("click", deleteItem);
+        deleteLink.addEventListener("click", editItem);
         deleteLink.innerHTML = deleteText;
         linksLi.appendChild(deleteLink);
     }
@@ -197,7 +162,7 @@ window.addEventListener("DOMContentLoaded", function(){
         }
     }
     if (item.favorite [1] == "Yes"){
-            $('fav').setAttribute("checked","checked");
+        $('fav').setAttribute("checked","checked");
         }    
         $('iq').value = item.iq[1];
         $('date').value = item.date[1];
@@ -205,23 +170,14 @@ window.addEventListener("DOMContentLoaded", function(){
         
         //remove "save contact" button form init listener
         save.removeEventListener("click", storeData);
+        
         //Change Begin button value to Edit Forgiveness
         $('submit').value = "Edit Forgiveness Plan";
         var editSubmit =$('submit');
         
-        //save the key value when we save the data we edited
+        //save the key value when we sve the data we edited
         editSubmit.addEventListener("click", validate);
         editSubmit.key = this.key;
-    }
-    function deleteItem(){
-        var ask =confirm("Are you sure you want to delete this contact?");
-        if(ask){
-            localStorage.removeItem(this.key);
-             alert("Contact was deleted.")
-            window.location.reload();
-        }else{
-            alert("Contact was NOT deleted.")
-        }
     }
     function clearLocal(){
         if (localStorage.length === 0){
@@ -294,17 +250,24 @@ window.addEventListener("DOMContentLoaded", function(){
     /*Variable defaults*/
     var contactGroups = ["--add Forgiveness Gesture--",
                          "How can I make it up to you?",
+                         "I need a spanking!",
+                         "You can slap me now!",
                          "Please accept these flowers!",
                          "Feed me to the sharks!",
                          "Go ahead sock me!",
+                         "Holding a I'm sorry sign!",
+                         "I'm sorry sign in a teddy!",
                          "It was my fault!",
                          "I'll buy the beer!",
+                         "Let's break bread!",
                          "I'm such a dufus!",
                          "I'm such an idiot!",
+                         "I suck! Please forgive me!",
                          "I'm such a loser!",
                          "Please forgive me!",
                          "Can I buy you Lunch!",
                          "I'm such a Donkey!",
+                         "Just fart in my face Already!"
                          ],
     sexValue,
     favoriteValue = "No",

@@ -1,4 +1,8 @@
+body {
+	font-size: 24px;
+	font-family: Helvetica, Arial, sans-serif;
 
+}
 button {
 	font-size: 24px;
 	color: #6DDCFF;
@@ -63,19 +67,28 @@ ul {
 .span {
 	color: #999999;
 	}
+.LabelColor {
+	color: #ffffff
+	}
+.NavigationColor {
+	color: #000000
+	}
 a:link {
 	font-size: 1em
 	}
 a:visited {
-	font-size: 1.1em;
-	color: #999999;
+	font-size: 1.1em
 	}
 body,td,th {
 	font-family: "Helvetica, Arial, sans-serif";
 	font-size: 1em;
-	position: relative;
 	}
+a {
+	font-size: 14px;
+}
 
-
-
+strong {
+	font-family: "Helvetica, Arial, sans-serif";
+	color: #000000;
+}
 
