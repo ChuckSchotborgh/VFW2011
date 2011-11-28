@@ -1,5 +1,5 @@
-    /* 
-     Chuck Schotborgh Visual Frameworks 11/2011 project 4
+    /*Activity 3
+     Chuck Schotborgh Visual Frameworks 11/2011 project 2
      Mobile Development
      Full Sail University
     */
@@ -46,14 +46,13 @@ window.addEventListener("DOMContentLoaded", function(){
         function toggleControls(n){
         switch(n){
             case "on":
-                $('contactForm').style.display = "block";
+                $('contactForm').style.display = "none";
                 $('clear').style.display = "inline";
-                $('displayLink').style.display = "inline";
+                $('displayLink').style.display = "none";
                 $('addNew').style.display = "inline";
-                $('items').style.display = "none";
                 break;
             case "off":
-                $('contactForm').style.display = "none";
+                $('contactForm').style.display = "block";
                 $('clear').style.display = "inline";
                 $('displayLink').style.display = "inline";
                 $('addNew').style.display = "none";
@@ -63,41 +62,33 @@ window.addEventListener("DOMContentLoaded", function(){
                 return false;
             }
     }
-    
-    function storeData(key){
-        //if no key this,then new item will need a new key
-        if(!key){
-            var id                  = Math.floor(Math.random()*100000001);
-        }else{
-            //Set the id to the existing key, use the passing key form the edit submitevent handler
-            //the key is passed to the validate function, then passed to here into the store Data function.
-            id = key;
-        }
-        getSelectedRadio();
-        getSelectedRadio();
-            var item              = {};
-                item.group        = ["Gesture Request Sent:", $('groups').value];
-                item.fname        = ["Name of FRIEND:", $('fname').value];
-                item.lname        = ["Last Name of FRIEND:", $('lname').value];
-                item.email        = ["Email of FRIEND:", $('email').value];
-                item.sex          = ["Gesture Post Type:", sexValue];
-                item.favorite     = ["Posted to Social Network:", favoriteValue ];      
-                item.iq           = ["Emotional Gauge:", $('iq').value];
-                item.date         = ["Date Sent:", $('date').value];
-                item.notes        = ["My Posted Message is:", $('notes').value];
-            localStorage.setItem(id, JSON.stringify(item));
-            alert("Contact Saved!");
-        }
+    //Storing Data to local storage finding random ID num and the values
+    function storeData(){
+    var id                  = Math.floor(Math.random()*100000001);
+    getSelectedRadio();
+    getSelectedRadio();
+        var item          = {};
+            item.group        = ["My Emotion:", $('groups').value];
+            item.fname        = ["First Name:", $('fname').value];
+            item.lname        = ["Last Name:", $('lname').value];
+            item.email           = ["Email:", $('email').value];
+            item.sex          = ["Gender Offender:", sexValue];
+            item.favorite     = ["Posted Online:", favoriteValue ];      
+            item.iq           = ["Rage Gauge:", $('iq').value];
+            item.date         = ["Date:", $('date').value];
+            item.notes        = ["My Entry:", $('notes').value];
+        localStorage.setItem(id, JSON.stringify(item));
+        alert("Contact Saved!");
+    }
     //Getting the Local Storage Data via the Key
     function getData(){
         toggleControls("on");
         if(localStorage.length === 0){
-            autoFillData();
-            alert("There is no data in the Local Storage so default data was added.");
+            alert("There is no data in the Local Storage.");
         }
         var makeDiv = document.createElement('div');
         makeDiv.setAttribute("id", "items");
-        var makeList = document.createElement('li');
+        var makeList = document.createElement('ul');
         makeDiv.appendChild(makeList);
         document.body.appendChild(makeDiv);
         $('items').style.display = "block";
@@ -109,10 +100,8 @@ window.addEventListener("DOMContentLoaded", function(){
             var value = localStorage.getItem(key);
             //Parsing the data to post to the InnerHTML for storage.
             var obj = JSON.parse(value);
-            var makeSubList = document.createElement('');
+            var makeSubList = document.createElement('ul');
             makeli.appendChild(makeSubList);
-            //Function for getting image
-            getImage(obj.group[1], makeSubList);
             for(var n in obj){
             var makeSubli = document.createElement('li');
             makeSubList.appendChild(makeSubli);
@@ -123,48 +112,6 @@ window.addEventListener("DOMContentLoaded", function(){
             makeItemLinks(localStorage.key(i), linksLi);
         }
     }
-    function getImage (catName, makeSubList){
-        var imageLi = document.createElement('li');
-        makeSubList.appendChild(imageLi);
-        var newImg = document.createElement('img');
-        var setSrc = newImg.setAttribute("src","images/"+ catName +".png");
-        imageLi.appendChild(newImg);
-        
-    }
-    
-    //JSON Object
-    function autoFillData(){
-        var json = {
-            "contact1": {
-                "group":["Gesture Request Sent:", "sorry2"],
-                "fname":["Name of FRIEND:", "James"],
-                "lname":["Last Name of FRIEND:", "Matthews"],
-                "email":["Email of FRIEND:", "James@James.com"],
-                "sex":["Gesture Post Type:", "Female"],
-                "favorite":["Posted to Social Network:", "no"],
-                "iq":["Emotional Gauge:", "75"],
-                "date":["Date Sent:", "2011-11-11"],
-                "notes":["My Posted Message is:", "Will you please forgive me!"]
-            },
-            "contact2": {
-                "group":["Gesture Request Sent:", "sorry1"],
-                "fname":["Name of FRIEND:", "Josiah"],
-                "lname":["Last Name of FRIEND:", "Schotborgh"],
-                "email":["Email of FRIEND:", "Jo@Jo.com"],
-                "sex":["Gesture Post Type:", "Female"],
-                "favorite":["Posted to Social Network:", "no"],
-                "iq":["Emotional Gauge:", "100"],
-                "date":["Date Sent:", "2011-11-11"],
-                "notes":["My Posted Message is:", "I'm such a Donkey!"]
-            }
-        };
-        //Store The JSON into local storage
-        for(var n in json){
-            var id                  = Math.floor(Math.random()*100000001);
-            localStorage.setItem(id, JSON.stringify(json[n]));
-        }
-    }
-
     function makeItemLinks(key, linksLi){
         var editLink = document.createElement('a');
         editLink.href = "#";
@@ -181,7 +128,7 @@ window.addEventListener("DOMContentLoaded", function(){
         deleteLink.href = "#";
         deleteLink.key = key;
         var deleteText = "Delete Contact";
-        deleteLink.addEventListener("click", deleteItem);
+        deleteLink.addEventListener("click", editItem);
         deleteLink.innerHTML = deleteText;
         linksLi.appendChild(deleteLink);
     }
@@ -208,7 +155,7 @@ window.addEventListener("DOMContentLoaded", function(){
         }
     }
     if (item.favorite [1] == "Yes"){
-            $('fav').setAttribute("checked","checked");
+        $('fav').setAttribute("checked","checked");
         }    
         $('iq').value = item.iq[1];
         $('date').value = item.date[1];
@@ -216,23 +163,14 @@ window.addEventListener("DOMContentLoaded", function(){
         
         //remove "save contact" button form init listener
         save.removeEventListener("click", storeData);
+        
         //Change Begin button value to Edit Forgiveness
         $('submit').value = "Edit Forgiveness Plan";
         var editSubmit =$('submit');
         
-        //save the key value when we save the data we edited
+        //save the key value when we sve the data we edited
         editSubmit.addEventListener("click", validate);
         editSubmit.key = this.key;
-    }
-    function deleteItem(){
-        var ask =confirm("Are you sure you want to delete this contact?");
-        if(ask){
-            localStorage.removeItem(this.key);
-             alert("Contact was deleted.")
-            window.location.reload();
-        }else{
-            alert("Contact was NOT deleted.")
-        }
     }
     function clearLocal(){
         if (localStorage.length === 0){
@@ -244,6 +182,7 @@ window.addEventListener("DOMContentLoaded", function(){
             return false;
         }
     }
+    
         function validate(e){
             //define the elements to check
             var getGroup = $('groups');
@@ -251,18 +190,11 @@ window.addEventListener("DOMContentLoaded", function(){
             var getLname = $('lname');
             var getEmail = $('email');
             
-            //Reset Error Messages
-            errMsg.innerHTML = "";
-                getGroup.style.border = "1px solid red";
-                getFname.style.border = "1px solid red";
-                getLname.style.border = "1px solid red";
-                getEmail.style.border = "1px solid red";
-                
             // Get Error Messages
             var messageAry = [];
             
             // Group Validation
-            if(getGroup.value ==="--add Forgiveness Gesture-"){
+            if(getGroup.value ==="--Current State of Mind--"){
                 var groupError = "Please choose a group.";
                 getGroup.style.border = "1px solid red";
                 messageAry.push(groupError);
@@ -275,12 +207,12 @@ window.addEventListener("DOMContentLoaded", function(){
             }
             // Last Name Validation
             if(getLname.value === ""){
-                var lNameError = "Please choose a last name.";
+                var lNameError = "Please choose a first name.";
                 getLname.style.border = "1px solid red";
                 messageAry.push(lNameError);
             }
             // Email Validation
-            var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\{2,3})+$/;
             if(!(re.exec(getEmail.value))){
                 var emailError = "Please enter a valid email address.";
                 getEmail.style.border = "1px solid red";
@@ -294,19 +226,34 @@ window.addEventListener("DOMContentLoaded", function(){
                 txt.innerHTML = messageAry[i];
                 errMsg.appendChild (txt);
             }
-             e.preventDefault();
-            return false;
-            }else{
-            // If all is OK, save our data! Send key value
-            //Remember the passing of this key 
-            storeData(this.key); 
         }
+        e.preventDefault();
+        return false;
     }
+    
     /*Variable defaults*/
-    var contactGroups = ["--add Forgiveness Gesture--",
-                         "Sorry1",
-                         "Sorry2",
-                         "Sorry3"
+    var contactGroups = ["--Current State of Mind--",
+                         "Exhuasted",
+                         "Suspicious",
+                         "Shocked",
+                         "Overwhelmed",
+                         "Frustrated",
+                         "Sad",
+                         "Hysterical",
+                         "Embarrassed",
+                         "Angry",
+                         "Confused",
+                         "Enraged",
+                         "Ashamed",
+                         "Lonely",
+                         "Frightend",
+                         "Smug",
+                         "Jealous",
+                         "Suprised",
+                         "Anxious",
+                         "Mischievous",
+                         "PissedOff",
+                         "Disgusted",
                          ],
     sexValue,
     favoriteValue = "No",

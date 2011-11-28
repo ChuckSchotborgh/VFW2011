@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--Chuck Schotborgh Visual Frameworks 11/2011 project 4 -->
+<!-- HTML TAG -->
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="description" content="I Forgive APP (beta)" />   
+        <meta name="keywords" content="HTML5, mobile development" />
+        <meta name="robots" content="index, follow" />
+        <meta name="robots" content="noindex, nofollow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>I Forgive APP (beta)</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+    </head>
+    <body>
+        <header><h1><br><br></h1></header>
+            <ul>
+                <nav>
+                    <a href="#" id="clear">Clear Stored Data</a>
+                    <a href="#" id="displayLink">Display Data</a>
+                    <a href="additem.html" id="addNew" style="display:none;">Add New Item</a>
+                </nav>
+            </ul>
+            <ul>*fields are required.</ul>
+        <form action="#" method="post" id="contactForm">
+                <ul id="errors"></ul>
+                <ul id="questions"</ul>
+                    <ul id="select"<label for="group">*Offer My Forgiveness Gesture:</label></ul>    
+                    <ul>    
+                        <li><label for="fname">*First Name of Friend:</label><input type="text" id="fname"/></li>
+                        <li><label for="lname">*Last Name of Friend:</label><input type="text" id="lname"/></li>
+                        <li><label for="email">*Email of Friend:</label><input type="email" id="email"/></li>
+                        <li><label for="sex">Gesture Presentation Type:</label>
+                            <ul class="checkbox"></ul>
+                                <li><label for="male">Male</label><input type="radio" id="male" value="Male" name="sex"/></li>
+                                <li><label for="female">Female</label><input type="radio" id="female" value="Female" name="sex"/></li>
+                        </li>
+                        <li><label for="fav">Post on Social Network:</label><input type="checkbox" id="fav" value="Yes" class="checkbox" /></li>
+                        <li><label for="iq">Gesture Tone level %:</label><input type="range" min="0" max="100" id="iq" /></li>
+                        <li><label for="date">Date Added:</label><input type="date" id="date" /></li>
+                        <li><label for="note">Add Customized Message:</label><textarea id="notes"></textarea></li>
+                    </ul>    
+            <input type="submit" value="Submit My Forgiveness Gesture" id="submit" />
+        </form>
+        <script src="js/main.js" type="text/javascript"></script>
+    </body>
+</html>
