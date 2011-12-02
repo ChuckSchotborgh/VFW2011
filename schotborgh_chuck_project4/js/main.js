@@ -109,7 +109,7 @@ window.addEventListener("DOMContentLoaded", function(){
             var value = localStorage.getItem(key);
             //Parsing the data to post to the InnerHTML for storage.
             var obj = JSON.parse(value);
-            var makeSubList = document.createElement('');
+            var makeSubList = document.createElement('ul');
             makeli.appendChild(makeSubList);
             //Function for getting image
             getImage(obj.group[1], makeSubList);
@@ -136,26 +136,224 @@ window.addEventListener("DOMContentLoaded", function(){
     function autoFillData(){
         var json = {
             "contact1": {
-                "group":["Gesture Request Sent:", "sorry2"],
+                "group":["Gesture Request Sent:", "PinHead"],
                 "fname":["Name of FRIEND:", "James"],
                 "lname":["Last Name of FRIEND:", "Matthews"],
                 "email":["Email of FRIEND:", "James@James.com"],
-                "sex":["Gesture Post Type:", "Female"],
+                "sex":["Gesture Post Type:", "Male"],
                 "favorite":["Posted to Social Network:", "no"],
                 "iq":["Emotional Gauge:", "75"],
-                "date":["Date Sent:", "2011-11-11"],
-                "notes":["My Posted Message is:", "Will you please forgive me!"]
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a PinHead!"]
             },
             "contact2": {
-                "group":["Gesture Request Sent:", "sorry1"],
+                "group":["Gesture Request Sent:", "Donkey"],
                 "fname":["Name of FRIEND:", "Josiah"],
                 "lname":["Last Name of FRIEND:", "Schotborgh"],
                 "email":["Email of FRIEND:", "Jo@Jo.com"],
+                "sex":["Gesture Post Type:", "Male"],
+                "favorite":["Posted to Social Network:", "no"],
+                "iq":["Emotional Gauge:", "21"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a Donkey!"]
+            },
+            "contact3": {
+                "group":["Gesture Request Sent:", "Dork"],
+                "fname":["Name of FRIEND:", "Hannah"],
+                "lname":["Last Name of FRIEND:", "Schotborgh"],
+                "email":["Email of FRIEND:", "Hannah@Hannah.com"],
                 "sex":["Gesture Post Type:", "Female"],
                 "favorite":["Posted to Social Network:", "no"],
-                "iq":["Emotional Gauge:", "100"],
-                "date":["Date Sent:", "2011-11-11"],
-                "notes":["My Posted Message is:", "I'm such a Donkey!"]
+                "iq":["Emotional Gauge:", "45"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a Dork!"]
+            },
+            "contact4": {
+                "group":["Gesture Request Sent:", "ButtHead"],
+                "fname":["Name of FRIEND:", "Garrett"],
+                "lname":["Last Name of FRIEND:", "Schotborgh"],
+                "email":["Email of FRIEND:", "Garrett@Garrett.com"],
+                "sex":["Gesture Post Type:", "Male"],
+                "favorite":["Posted to Social Network:", "no"],
+                "iq":["Emotional Gauge:", "56"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a ButtHead!"]
+                        },
+            "contact5": {
+                "group":["Gesture Request Sent:", "MonkeySpanker"],
+                "fname":["Name of FRIEND:", "Ethan"],
+                "lname":["Last Name of FRIEND:", "Schotborgh"],
+                "email":["Email of FRIEND:", "Ethan@Ethan.com"],
+                "sex":["Gesture Post Type:", "Male"],
+                "favorite":["Posted to Social Network:", "no"],
+                "iq":["Emotional Gauge:", "78"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a MonkeySpanker!"]
+            },
+            "contact6": {
+                "group":["Gesture Request Sent:", "LoLo"],
+                "fname":["Name of FRIEND:", "Judah"],
+                "lname":["Last Name of FRIEND:", "Schotborgh"],
+                "email":["Email of FRIEND:", "Judah@Judah.com"],
+                "sex":["Gesture Post Type:", "Male"],
+                "favorite":["Posted to Social Network:", "no"],
+                "iq":["Emotional Gauge:", "34"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a LoLo!"]
+            },
+            "contact7": {
+                "group":["Gesture Request Sent:", "Catonk"],
+                "fname":["Name of FRIEND:", "Anika"],
+                "lname":["Last Name of FRIEND:", "Schotborgh"],
+                "email":["Email of FRIEND:", "Anika@Anika.com"],
+                "sex":["Gesture Post Type:", "Female"],
+                "favorite":["Posted to Social Network:", "no"],
+                "iq":["Emotional Gauge:", "56"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a Catonk!"]
+                        },
+            "contact8": {
+                "group":["Gesture Request Sent:", "Dorfus"],
+                "fname":["Name of FRIEND:", "Midnight"],
+                "lname":["Last Name of FRIEND:", "Schotborgh"],
+                "email":["Email of FRIEND:", "Midnight@Midnight.com"],
+                "sex":["Gesture Post Type:", "Male"],
+                "favorite":["Posted to Social Network:", "no"],
+                "iq":["Emotional Gauge:", "65"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a Dorfus!"]
+            },
+            "contact9": {
+                "group":["Gesture Request Sent:", "LooneyToon"],
+                "fname":["Name of FRIEND:", "Deborah"],
+                "lname":["Last Name of FRIEND:", "Schotborgh"],
+                "email":["Email of FRIEND:", "Deborah@Deborah.com"],
+                "sex":["Gesture Post Type:", "Female"],
+                "favorite":["Posted to Social Network:", "no"],
+                "iq":["Emotional Gauge:", "26"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a LooneyToon!"]
+            },
+            "contact10": {
+                "group":["Gesture Request Sent:", "Ditwad"],
+                "fname":["Name of FRIEND:", "Erica"],
+                "lname":["Last Name of FRIEND:", "Moojen"],
+                "email":["Email of FRIEND:", "Erica@Erica.com"],
+                "sex":["Gesture Post Type:", "Female"],
+                "favorite":["Posted to Social Network:", "no"],
+                "iq":["Emotional Gauge:", "46"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a Ditwad!"]
+                        },
+            "contact11": {
+                "group":["Gesture Request Sent:", "Dweeb"],
+                "fname":["Name of FRIEND:", "Joel"],
+                "lname":["Last Name of FRIEND:", "Moojen"],
+                "email":["Email of FRIEND:", "Joel@Joel.com"],
+                "sex":["Gesture Post Type:", "Male"],
+                "favorite":["Posted to Social Network:", "no"],
+                "iq":["Emotional Gauge:", "98"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a Dweeb!"]
+            },
+            "contact12": {
+                "group":["Gesture Request Sent:", "Kook"],
+                "fname":["Name of FRIEND:", "Ron"],
+                "lname":["Last Name of FRIEND:", "Moojen"],
+                "email":["Email of FRIEND:", "Ron@Ron.com"],
+                "sex":["Gesture Post Type:", "Male"],
+                "favorite":["Posted to Social Network:", "no"],
+                "iq":["Emotional Gauge:", "70"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a Kook!"]
+            },
+            "contact13": {
+                "group":["Gesture Request Sent:", "Minkey"],
+                "fname":["Name of FRIEND:", "Josiah"],
+                "lname":["Last Name of FRIEND:", "Schotborgh"],
+                "email":["Email of FRIEND:", "Jo@Jo.com"],
+                "sex":["Gesture Post Type:", "Male"],
+                "favorite":["Posted to Social Network:", "no"],
+                "iq":["Emotional Gauge:", "12"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a Minkey!"]
+                        },
+            "contact14": {
+                "group":["Gesture Request Sent:", "PotatoHead"],
+                "fname":["Name of FRIEND:", "Dave"],
+                "lname":["Last Name of FRIEND:", "Mandagie"],
+                "email":["Email of FRIEND:", "Dave@Dave.com"],
+                "sex":["Gesture Post Type:", "Male"],
+                "favorite":["Posted to Social Network:", "no"],
+                "iq":["Emotional Gauge:", "12"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a PotatoHead!"]
+            },
+            "contact15": {
+                "group":["Gesture Request Sent:", "DingleBerry"],
+                "fname":["Name of FRIEND:", "Matthew"],
+                "lname":["Last Name of FRIEND:", "Moojen"],
+                "email":["Email of FRIEND:", "Matthew@Matthew.com"],
+                "sex":["Gesture Post Type:", "Male"],
+                "favorite":["Posted to Social Network:", "no"],
+                "iq":["Emotional Gauge:", "34"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a DingleBerry!"]
+            },
+            "contact16": {
+                "group":["Gesture Request Sent:", "Dufus"],
+                "fname":["Name of FRIEND:", "Danny"],
+                "lname":["Last Name of FRIEND:", "Mandagie"],
+                "email":["Email of FRIEND:", "Danny@Danny.com"],
+                "sex":["Gesture Post Type:", "Male"],
+                "favorite":["Posted to Social Network:", "no"],
+                "iq":["Emotional Gauge:", "54"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a Dufus!"]
+                        },
+            "contact17": {
+                "group":["Gesture Request Sent:", "NumbSkull"],
+                "fname":["Name of FRIEND:", "Michael"],
+                "lname":["Last Name of FRIEND:", "Moojen"],
+                "email":["Email of FRIEND:", "Michael@Jo.com"],
+                "sex":["Gesture Post Type:", "Male"],
+                "favorite":["Posted to Social Network:", "no"],
+                "iq":["Emotional Gauge:", "27"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a NumbSkull!"]
+            },
+            "contact18": {
+                "group":["Gesture Request Sent:", "Bonehead"],
+                "fname":["Name of FRIEND:", "Robbie"],
+                "lname":["Last Name of FRIEND:", "Mandagie"],
+                "email":["Email of FRIEND:", "Robbie@Jo.com"],
+                "sex":["Gesture Post Type:", "Male"],
+                "favorite":["Posted to Social Network:", "no"],
+                "iq":["Emotional Gauge:", "73"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a Bonehead!"]
+            },
+            "contact19": {
+                "group":["Gesture Request Sent:", "Loser"],
+                "fname":["Name of FRIEND:", "Nicole"],
+                "lname":["Last Name of FRIEND:", "Moojen"],
+                "email":["Email of FRIEND:", "Nicole@Nicole.com"],
+                "sex":["Gesture Post Type:", "Female"],
+                "favorite":["Posted to Social Network:", "no"],
+                "iq":["Emotional Gauge:", "13"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm such a Loser!"]
+                        },
+            "contact20": {
+                "group":["Gesture Request Sent:", "Dork"],
+                "fname":["Name of FRIEND:", "Paul"],
+                "lname":["Last Name of FRIEND:", "Mandagie"],
+                "email":["Email of FRIEND:", "Paul@Jo.com"],
+                "sex":["Gesture Post Type:", "Male"],
+                "favorite":["Posted to Social Network:", "no"],
+                "iq":["Emotional Gauge:", "74"],
+                "date":["Date Sent:", "2011-11-12"],
+                "notes":["My Posted Message is:", "I'm a Dork!"]
             }
         };
         //Store The JSON into local storage
@@ -304,10 +502,26 @@ window.addEventListener("DOMContentLoaded", function(){
     }
     /*Variable defaults*/
     var contactGroups = ["--add Forgiveness Gesture--",
-                         "Sorry1",
-                         "Sorry2",
-                         "Sorry3"
-                         ],
+                        "Dork",
+                        "Loser",
+                        "Bonehead",
+                        "NumbSkull",
+                        "Dufus",
+                        "DingleBerry",
+                        "PotatoHead",
+                        "Minkey",
+                        "Kook",
+                        "Dweeb",
+                        "Ditwad",
+                        "LooneyToon",
+                        "Dorfus",
+                        "Catonk",
+                        "Dork",
+                        "LoLo",
+                        "MonkeySpanker",
+                        "ButtHead",
+                        "PinHead"
+                        ],
     sexValue,
     favoriteValue = "No",
     errMsg = $('errors')
